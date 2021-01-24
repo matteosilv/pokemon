@@ -1,8 +1,24 @@
-# pokemon project
+# Pokemon API
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Pokemon API is a simple microservice exposing the endpoint:
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+**GET** _/pokemon/{name}_
+
+returning the Pokemon description as a JSON response in the format:
+
+```JSON
+{
+  "name" : "charizard",
+  "description" : "Charizard flies 'round the sky in search of powerful opponents."
+}
+```
+
+It is build on top of [Quarkus](https://quarkus.io/), a Java based microservices framework.
+
+## Prerequisites
+
+You will need to install Java version 11 at least.
+Follow the instructions at https://adoptopenjdk.net/installation.html
 
 ## Running the application in dev mode
 

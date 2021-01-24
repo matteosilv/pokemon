@@ -1,4 +1,4 @@
-package org.matteosilv.resteasyjackson;
+package org.matteosilv;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
