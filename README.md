@@ -20,7 +20,7 @@ It is build on top of [Quarkus](https://quarkus.io/), a Java based microservices
 You will need to install Java version 11 at least.
 Follow the instructions at https://adoptopenjdk.net/installation.html
 
-Then, depending on your OS and the way you installed Java, you may export the path to your JDK in the `JAVA_HOME`` environment variable.
+Then, depending on your OS and the way you installed Java, you may export the path to your JDK in the `JAVA_HOME` environment variable.
 
 ## Running the application in dev mode
 
