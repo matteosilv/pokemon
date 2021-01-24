@@ -15,6 +15,12 @@ returning the Pokemon description as a JSON response in the format:
 
 It is build on top of [Quarkus](https://quarkus.io/), a Java based microservices framework.
 
+The service runs on port ``8080``. You can access it at:
+
+```
+http://localhost:8080/pokemon/{name}
+```
+
 ## Prerequisites
 
 You will need to install Java version 11 at least.
