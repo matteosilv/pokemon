@@ -20,6 +20,8 @@ It is build on top of [Quarkus](https://quarkus.io/), a Java based microservices
 You will need to install Java version 11 at least.
 Follow the instructions at https://adoptopenjdk.net/installation.html
 
+Then, depending on your OS and the way you installed Java, you may export the path to your JDK in the `JAVA_HOME`` environment variable.
+
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
@@ -43,31 +45,27 @@ If you want to build an _über-jar_, execute the following command:
 
 The application is now runnable using `java -jar target/pokemon-1.0.0-SNAPSHOT-runner.jar`.
 
-## Creating a native executable
+## Building the Docker container
 
-You can create a native executable using: 
+Before building the container image run:
+
 ```shell script
-./mvnw package -Pnative
+./mvnw package
+```
+Then, build the image with:
+
+```shell script
+docker build -f src/main/docker/Dockerfile.jvm -t pokemon .
 ```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
+Then run the container using:
+
 ```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
+docker run -i --rm -p 8080:8080 pokemon
 ```
 
-You can then execute your native executable with: `./target/pokemon-1.0.0-SNAPSHOT-runner`
+If you want to include the debug port and enable remote debugging run the container using:
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html.
-
-# RESTEasy JAX-RS
-
-<p>A Hello World RESTEasy resource</p>
-
-Guide: https://quarkus.io/guides/rest-json
-
-# RESTEasy JSON serialisation using Jackson
-
-<p>This example demonstrate RESTEasy JSON serialisation by letting you list, add and remove quark types from a list.</p>
-<p><b>Quarked!</b></p>
-
-Guide: https://quarkus.io/guides/rest-json
+```shell script
+docker run -i --rm -p 8080:8080 -p 5005:5005 -e JAVA_ENABLE_DEBUG="true" pokemon
+```
